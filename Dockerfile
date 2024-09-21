@@ -23,5 +23,5 @@ RUN echo "eula=true" > eula.txt
 # Exponer el puerto del servidor de Minecraft
 EXPOSE 25565
 
-# Ejecutar el servidor de Minecraft sin usar variables en el CMD
+# Ejecutar el servidor de Minecraft
 CMD ["java", "-Xmx4G", "-Xms4G", "-jar", "forge-1.18.2-40.2.0.jar", "nogui"]
