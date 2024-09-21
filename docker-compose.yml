@@ -12,6 +12,5 @@ services:
       TYPE: "FORGE"
       FORGE_VERSION: "40.2.0"
     volumes:
-      - "./data:/data"
-      - "./mods:/mods"
+      - "./mods:/mods"  # Mantén esta línea si usas mods
     restart: unless-stopped
