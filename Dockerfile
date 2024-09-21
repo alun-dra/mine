@@ -9,10 +9,10 @@ ENV FORGE_VERSION=40.1.0
 WORKDIR /minecraft
 
 # Copiar los archivos del servidor al contenedor
-COPY . .
+COPY forge-1.18.2-40.1.0-installer.jar /minecraft/
 
 # Instalar Forge sin GUI (modo headless)
-RUN java -jar forge-${MINECRAFT_VERSION}-${FORGE_VERSION}-installer.jar --installServer
+RUN java -jar forge-1.18.2-40.1.0-installer.jar --installServer
 
 # Aceptar el EULA de Minecraft automáticamente
 RUN echo "eula=true" > eula.txt
