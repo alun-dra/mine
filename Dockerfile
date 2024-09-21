@@ -3,16 +3,16 @@ FROM openjdk:17-jdk-slim
 
 # Establecer variables de entorno para el servidor de Minecraft
 ENV MINECRAFT_VERSION=1.18.2
-ENV FORGE_VERSION=40.1.0
+ENV FORGE_VERSION=40.2.0
 
 # Crear el directorio del servidor
 WORKDIR /minecraft
 
 # Copiar los archivos del servidor al contenedor
-COPY forge-1.18.2-40.1.0-installer.jar /minecraft/
+COPY forge-1.18.2-40.2.0-installer.jar /minecraft/
 
 # Instalar Forge sin GUI (modo headless)
-RUN java -jar forge-1.18.2-40.1.0-installer.jar --installServer
+RUN java -jar forge-1.18.2-40.2.0-installer.jar --installServer
 
 # Aceptar el EULA de Minecraft automáticamente
 RUN echo "eula=true" > eula.txt
