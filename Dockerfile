@@ -11,12 +11,14 @@ WORKDIR /minecraft
 # Copiar los archivos del servidor al contenedor
 COPY . .
 
+# Instalar Forge sin GUI (modo headless)
+RUN java -jar forge-${MINECRAFT_VERSION}-${FORGE_VERSION}-installer.jar --installServer
+
 # Aceptar el EULA de Minecraft automáticamente
 RUN echo "eula=true" > eula.txt
 
 # Exponer el puerto del servidor de Minecraft
 EXPOSE 25565
 
-# Ejecutar el servidor
-CMD ["java", "-Xmx4G", "-Xms4G", "-jar", "forge-1.18.2-40.2.0.jar", "nogui"]
-
+# Ejecutar el servidor de Minecraft (sin el instalador)
+CMD ["java", "-Xmx4G", "-Xms4G", "-jar", "forge-${MINECRAFT_VERSION}-${FORGE_VERSION}.jar", "nogui"]
